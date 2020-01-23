@@ -1,26 +1,15 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Nov 25 12:27:48 2019
-
-@author: mateu
-"""
-#Obliczanie predkosci ze wzoru
 import math
+from scipy import optimize
 
-#v=335 #prędkosc dzwieku
-u=2510 #predkosc spalin wzgledem rakiety
-M0=2.8E6 #masa rakiety w momencie startu
-m=13.3E3 #szybkosc zuzycia paliwa
-g=9.81 #przyspiesznie ziemskie
-t=0 #poczatkowa wartosc
-v=0
+u=2510
+M0=2.8*(10**6)
+m=13.3*(10**3)
+g=9.81
 
-while v<335.0:
-    t+=1
-    v=u*math.log(M0/(M0-m*t))-g*t
- #   print(v,t)
+def f(t):
+    return u*math.log(M0/(M0-m*t))-g*t-335
 
-print("Predkosc dzwieku zostanie osiagnieta po:",t,"sekundach")
+print("t=",optimize.newton(f,0))
 
 
     
