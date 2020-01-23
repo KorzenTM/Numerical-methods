@@ -13,9 +13,9 @@ y0=[[0,0.01],[0,0.3],[0,0.3]] #Q0
 
 for i in range(0,3):
     wyn=solve_ivp(lambda t,Q:f1(t,Q,a,c[i],d),[0,50],y0[i])
-    #print(wyn.t)
-    #print(wyn.y[0])
-    #print(wyn.y[1])
+    print(wyn.t)
+    print(wyn.y[0])
+    print(wyn.y[1])
     plt.subplot(2,1,1)
     plt.plot(wyn.t,wyn.y[0],'o',label='y')
  #   plt.plot(wyn.t,wyn.y[1],'o',label="y'")
